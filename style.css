@@ -1,0 +1,122 @@
+:root {
+    --main-padding: 0.4rem;
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid green;
+}
+
+.container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-template-areas:
+"nav nav nav nav"
+"main main main sidebar"
+"content1 content2 content3 sidebar"
+"footer footer footer sidebar";
+ color: #fff;   
+ height: 100vh;   
+ text-align: center;
+ text-transform: uppercase;
+}
+
+nav {
+    background-color: burlywood;
+    grid-area: nav;
+    padding: var(--main-padding);
+
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+main {
+    background-color: lawngreen;
+    grid-area: main;
+    padding: var(--main-padding);
+}
+
+#sidebar {
+    background-color: lightcoral;
+    grid-area: sidebar;
+    padding: var(--main-padding);
+}
+
+#content1 {
+    background-color: lightcoral;
+    grid-area: content1;
+    padding: var(--main-padding);
+}
+
+#content2 {
+    background-color: cyan;
+    grid-area: content2;
+    padding: var(--main-padding);
+}
+
+#content3 {
+    background-color: lightpink;
+    grid-area: content3;
+    padding: var(--main-padding);
+}
+
+footer {
+    background-color: maroon;
+    grid-area: footer;
+    padding: var(--main-padding);
+}
+
+@media (max-width: 728px) {
+    #sidebar {
+        display: none;
+    }
+
+    .container {
+        gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+        "nav nav"
+        "main main"
+        "main main"
+        "content1 content2"
+        "content3 content3"
+        "footer footer"
+
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        display: block;
+    }
+}
+
+    .container {
+         grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: 
+        "nav"
+        "sidebar"
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "footer"
+    ;
+}
+
+    .nav-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4fr, 1fr);
+    }
